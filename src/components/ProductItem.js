@@ -31,6 +31,8 @@ const Wrapper = styled.article`
       width: 100%;
       height: 300px;
       transition: all 1s ease;
+      border-radius:10px;
+      box-shadow:rgba(0,0,0,0.7)
     }
   }
   .featured-product-img:hover .product-search-icon {

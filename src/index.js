@@ -6,17 +6,30 @@ import reportWebVitals from "./reportWebVitals";
 import { UserContextProvider } from "./context/userContext";
 import { ProductsContextProvider } from "./context/productsContext";
 import { CartContextProvider } from "./context/cartContext";
+import { Auth0Provider } from "@auth0/auth0-react";
+
+// dev-kzgv0h-d.us.auth0.com domain
+// ShIe0l1aQ2eKMZFvOmFPZdc1N09u30nd cliend id
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
-    <CartContextProvider>
-      <ProductsContextProvider>
-        <UserContextProvider>
-          <App />
-        </UserContextProvider>
-      </ProductsContextProvider>
-    </CartContextProvider>
+    <UserContextProvider>
+      <Auth0Provider
+        domain="dev-kzgv0h-d.us.auth0.com"
+        clientId="ShIe0l1aQ2eKMZFvOmFPZdc1N09u30nd"
+        redirectUri={window.location.origin}
+        cacheLocation="localstorage"
+      >
+        <CartContextProvider>
+          <ProductsContextProvider>
+            <UserContextProvider>
+              <App />
+            </UserContextProvider>
+          </ProductsContextProvider>
+        </CartContextProvider>
+      </Auth0Provider>
+    </UserContextProvider>
   </React.StrictMode>
 );
 

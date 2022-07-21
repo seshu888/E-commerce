@@ -13,6 +13,8 @@ const Wrapper = styled.section`
   .hero-info-container {
     h1 {
       letter-spacing: 0.2rem;
+      font-size:2rem;
+      margin-bottom:20px;
     }
     p {
       letter-spacing: 0.1rem;

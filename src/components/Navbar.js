@@ -36,6 +36,7 @@ const NavContainer = styled.nav`
     justify-content: center;
     li {
       margin: 0 0.5rem;
+      margin-bottom:6px;
     }
     a {
       color: var(--clr-grey-3);
@@ -43,6 +44,7 @@ const NavContainer = styled.nav`
       text-transform: capitalize;
       letter-spacing: var(--spacing);
       padding: 0.5rem;
+   
       &:hover {
         border-bottom: 2px solid var(--clr-primary-7);
       }
@@ -73,7 +75,7 @@ const NavContainer = styled.nav`
   }
 `;
 const Navbar = () => {
-    const {openSidebar} = useContext(UserContext)
+    const {openSidebar,login} = useContext(UserContext)
   return (
     <NavContainer>
       <div className="nav-center">
@@ -90,7 +92,7 @@ const Navbar = () => {
             const { id, text, url } = link;
             return (
               <li key={id}>
-                <Link to={url}>{text}</Link>
+                <Link to={url} >{text}</Link>
               </li>
             );
           })}

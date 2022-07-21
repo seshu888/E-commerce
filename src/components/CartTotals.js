@@ -1,6 +1,8 @@
 import React, { useContext } from "react";
+import { Link } from "react-router-dom";
 import styled from "styled-components";
 import CartContext from "../context/cartContext";
+import UserContext from "../context/userContext";
 import { formatPrice } from "../utils/helpers";
 const Wrapper = styled.section`
   .subtotal-card {
@@ -23,6 +25,7 @@ const Wrapper = styled.section`
   }
 `;
 const CartTotals = () => {
+  const {myUser,loginWithRedirect}=useContext(UserContext)
   const { total,count } = useContext(CartContext);
   return (
     <Wrapper>
@@ -41,7 +44,7 @@ const CartTotals = () => {
         </div>
         
       </div>
-      <button className="btn">loging</button>
+     {myUser?<button className="btn"><Link to="/checkout">Checkout</Link></button>: <button className="btn" onClick={loginWithRedirect}><Link to="/login" >Login </Link></button>}
     </Wrapper>
   );
 };
